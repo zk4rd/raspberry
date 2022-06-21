@@ -1,0 +1,26 @@
+1.Turn OFF HDMI output
+/etc/rc.local dotor nemsen
+
+ *usr/bin/tvservice -o
+
+/boot/config.txt dotor nemj uzeh hdmi_blanking=2
+
+ 2.Disable on-board LEDs required reboot
+
+sudo nano /boot/config.txt dotor nemsen
+
+# Disable the ACT LED.
+dtparam=act_led_trigger=none
+dtparam=act_led_activelow=off
+
+# Disable the PWR LED.
+dtparam=pwr_led_trigger=none
+dtparam=pwr_led_activelow=off
+
+3. bluetooth disable@
+udo echo "dtoverlay=disable-bt" >> /boot/config.txts
+
+4**autorun
+sudo nano /home/pi/.bashrc
+echo Running at boot 
+sudo python /home/pi/sample.py
